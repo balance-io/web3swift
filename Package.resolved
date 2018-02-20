@@ -1,0 +1,52 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "BigInt",
+        "repositoryURL": "https://github.com/lorentey/BigInt.git",
+        "state": {
+          "branch": null,
+          "revision": "557d7e0e15f8693436212594a726af1795488550",
+          "version": "3.0.2"
+        }
+      },
+      {
+        "package": "CryptoSwift",
+        "repositoryURL": "https://github.com/krzyzanowskim/CryptoSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "89e6f04dabd2809142735017f7825132878a1ba9",
+          "version": "0.8.2"
+        }
+      },
+      {
+        "package": "SipHash",
+        "repositoryURL": "https://github.com/attaswift/SipHash",
+        "state": {
+          "branch": null,
+          "revision": "7b47e3f23a66770b1eb18e15e20546aad398c9dd",
+          "version": "1.2.0"
+        }
+      },
+      {
+        "package": "Sodium",
+        "repositoryURL": "https://github.com/balancemymoney/Sodium.git",
+        "state": {
+          "branch": null,
+          "revision": "fe8d43f4b8e12798e629bfee452c13605e4808a2",
+          "version": "1.1.1"
+        }
+      },
+      {
+        "package": "secp256k1_swift",
+        "repositoryURL": "https://github.com/balancemymoney/secp256k1_swift.git",
+        "state": {
+          "branch": null,
+          "revision": "9b5d87f15ddae103252dd587f1aaa79183441cc9",
+          "version": "1.0.3"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
