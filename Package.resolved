@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/balancemymoney/secp256k1_swift.git",
         "state": {
           "branch": null,
-          "revision": "9b5d87f15ddae103252dd587f1aaa79183441cc9",
-          "version": "1.0.3"
+          "revision": "66d9d9b1e4fd6c869c7f4d72c5db32044ee37c38",
+          "version": "1.0.4"
         }
       }
     ]
