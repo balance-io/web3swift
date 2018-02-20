@@ -55,19 +55,26 @@ public class Web3HttpProvider: Web3Provider {
     }
     
     static func syncPost(_ request: JSONRPCrequest, providerURL: URL) -> Any? {
-        guard let _ = try? JSONEncoder().encode(request) else {return nil}
-        let headers: HTTPHeaders = [
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        ]
-        let response = Alamofire.request(providerURL, method: .post, parameters: nil, encoding: request, headers: headers).responseJSON()
-        switch response.result {
-        case .success(let resp):
-            return resp
-        case .failure(let err):
-            print(err)
-            return nil
+        guard let httpBody = try? JSONEncoder().encode(request) else {return nil}
+        
+        var request = URLRequest(url: providerURL)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.httpMethod = "POST"
+        request.httpBody = httpBody
+        
+        let dispatchGroup = DispatchGroup()
+        var returnDict: [String: Any]? = nil
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            dispatchGroup.leave()
+            guard let data = data, error != nil else {return}
+            returnDict = try? JSONDecoder().decode([String: Any].self, from: data)
         }
+        dispatchGroup.enter()
+        task.resume()
+        dispatchGroup.wait()
+        
+        return returnDict
     }
 }
 

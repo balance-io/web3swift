@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct JSONRPCrequest: Encodable, ParameterEncoding  {
+public struct JSONRPCrequest: Encodable {
     var jsonrpc: String = "2.0"
     var method: JSONRPCmethod?
     var params: JSONRPCparams?
@@ -27,13 +27,6 @@ public struct JSONRPCrequest: Encodable, ParameterEncoding  {
         try container.encode(method?.rawValue, forKey: .method)
         try container.encode(params, forKey: .params)
         try container.encode(id, forKey: .id)
-    }
-    
-    public func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
-        let jsonSerialization = try JSONEncoder().encode(self)
-        var request = try urlRequest.asURLRequest()
-        request.httpBody = jsonSerialization
-        return request
     }
     
     public var isValid: Bool {
